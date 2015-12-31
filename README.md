@@ -57,13 +57,13 @@ Configure EAP 7 Datasource
 A command line interface (CLI) script is located in the `src/main/resources/dsScript.cli` 
 
 1. Modify the CLI script - change 'localhost:5432' to the correct host and port for your install of Postgres.
-2. Open a terminal/command window and run the following substituting in the appropriate paths for `EAP_HOME`  and `PATH_TO_CLI_SCRIPT`.
+2. Open a terminal/command window and run the following substituting in the appropriate paths for *EAP_HOME*  and *PATH_TO_CLI_SCRIPT*.
 
 	For Linux:
-		$ EAP_HOME/bin/jboss-cli.sh --connect --file=PATH_TO_CLI_SCRIPT/dsScript.cli
+		$ *EAP_HOME*/bin/jboss-cli.sh --connect --file=*PATH_TO_CLI_SCRIPT*/dsScript.cli
 
 	 For Windows: 
-	 	C:\>EAP_HOME\bin\jboss-cli.bat --connect --file=PATH_TO_CLI_SCRIPT\dsScript.cli
+	 	C:\>*EAP_HOME*\bin\jboss-cli.bat --connect --file=*PATH_TO_CLI_SCRIPT*\dsScript.cli
 	 	
 Configure Maven
 ---------------
