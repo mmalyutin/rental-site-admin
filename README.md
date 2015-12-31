@@ -84,7 +84,15 @@ Start the JBoss EAP Server
 Build and Deploy the Quickstart
 -------------------------
 
+_NOTE: The following build command assumes you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line. See [Build and Deploy the Quickstarts](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/BUILD_AND_DEPLOY.md#build-and-deploy-the-quickstarts) for complete instructions and additional options._
 
+1. Make sure you have started the JBoss EAP server as described above.
+2. Open a command prompt and navigate to the root directory of this quickstart.
+3. Type this command to build and deploy the archive:
+
+        mvn clean install wildfly:deploy
+
+4. This will deploy `target/rental-site-admin.war` to the running instance of the server.
 
 
 Access the application
@@ -100,5 +108,5 @@ Undeploy the Archive
 2. Open a command line and navigate to the root directory of this quickstart.
 3. When you are finished testing, type this command to undeploy the archive:
 
-        mvn jboss-as:undeploy
+        mvn wildfly:undeploy
 
