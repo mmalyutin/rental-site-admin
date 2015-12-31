@@ -11,7 +11,7 @@ Source: <https://github.com/jjrohrb/rental-site-admin>
 What is it?
 -----------
 
-The `rental-site-admin` quickstart demonstrates Hibernate Spatial and PostGIS and a Custom User Type under Hibernate 5 while using  *CDI 1.2*,  *JPA 2.1*, *JTA 1.2*, *EJB 3.1* and *JSF 2.2*. in Red Hat JBoss Enterprise Application Platform 7.
+The `rental-site-admin` quickstart demonstrates Hibernate Spatial and PostGIS and a Custom User Type under Hibernate 5 while using  *CDI 1.2*,  *JPA 2.1*, *JTA 1.2*, *EJB 3.1* and *JSF 2.2* in Red Hat JBoss Enterprise Application Platform 7.
 
 The table 'properties' has a column, 'geo_coordinates' which is a PostGIS 'geometry' type. 
 
