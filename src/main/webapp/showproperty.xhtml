@@ -1,0 +1,89 @@
+<!--
+    JBoss, Home of Professional Open Source
+    Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
+    contributors by the @authors tag. See the copyright.txt in the
+    distribution for a full listing of individual contributors.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+    
+<h:head>
+   	<h:outputStylesheet library="css" name="table-style.css"  />
+</h:head>
+
+<ui:composition template="templates/template.xhtml">
+<ui:define name="pagetitle">Display Property</ui:define>
+    <ui:define name="content">
+        <h:messages />
+        <h:form>
+            <h:panelGrid columns="3">
+            	<h:outputLabel id="id" value="Id: " />
+             	<h:inputText value="#{displayProperty.id}" />
+            	<h:message for="name" />
+            
+               <h:outputLabel for="name">Enter Property name:</h:outputLabel>
+                <h:inputText id="name" value="#{displayProperty.name}" />
+                <h:message for="name" />
+                
+               <h:outputLabel for="coordinates">Enter Geographic Coordinates (latitude, longitude):</h:outputLabel>
+				<h:inputText id="coordinates" converter="#{geoPointConverter}"	value="#{displayProperty.geo_coordinates}" />
+				<h:message for="coordinates" />
+				
+               <h:outputLabel for="zoomlevel">Enter Zoom level (0 to n):</h:outputLabel>
+				<h:inputText id="zoomlevel" value="#{displayProperty.zoomlevel}" />
+			   <h:message for="zoomlevel" />
+         
+         <h:dataTable value="#{displayProperty.features}" var="f"
+    			styleClass="feature-table"
+    			headerClass="feature-table-header"
+    			rowClasses="feature-table-odd-row,feature-table-even-row"
+    		>
+
+    		<h:column>
+    			
+    			<f:facet name="header">Feature</f:facet>
+    			<h:inputText value="#{f.featureDescription}" size="10" rendered="#{f.editable}" />
+    				
+    			<h:outputText value="#{f.featureDescription}" rendered="#{not f.editable}" />
+    				
+    		</h:column>
+    			
+
+    		
+    		<h:column>
+    				
+    			<f:facet name="header">Actions</f:facet>
+    			 <h:commandLink value="Edit" action="#{displayProperty.editAction(f.featureNumber)}" rendered="#{not f.editable}" /> &nbsp;
+    			 
+    	  		 <h:commandLink value="Delete" action="#{displayProperty.deleteAction(f.featureNumber)}" /> &nbsp;
+    				
+    		</h:column>
+    			
+    		</h:dataTable>
+                
+         	<h:outputFormat rendered="#{displayProperty.geo_coordinates != null}">
+   				 <iframe width="600" height="450" frameborder="0" style="border:0" src="#{displayProperty.mapUrl}"></iframe>
+   			</h:outputFormat>   
+   										
+            
+            </h:panelGrid>
+            <h:commandLink value="Add feature" action="#{displayProperty.addAction('showproperty')}" /> &nbsp;
+            <h:commandButton action="#{propertyController.update}" value="Update Property" />
+        </h:form>
+        <h:link outcome="/propertyedit.xhtml" value="Display properties" />
+    </ui:define>
+</ui:composition>
+</html>

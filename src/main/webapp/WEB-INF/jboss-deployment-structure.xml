@@ -1,0 +1,10 @@
+<jboss-deployment-structure>
+	<deployment>
+
+		<dependencies>
+			<module name="org.hibernate" />
+			<module name="org.postgresql" />
+		</dependencies>
+
+	</deployment>
+</jboss-deployment-structure>
