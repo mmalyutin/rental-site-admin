@@ -34,20 +34,25 @@ Refer to <http://postgis.net/install> for instructions on installing PostGIS.
 Prepare Database
 ----------------
 
-1. Create the JBRentals database. Run the following sql: CREATE DATABASE "JBRentals";
+1. Create the JBRentals database. Run the following sql: 
+
+	CREATE DATABASE "JBRentals";
 		
-2. Switch to new database JBRentals and run the following statement: CREATE EXTENSION IF NOT EXISTS "postgis";
+2. Switch to new database JBRentals and run the following statement: 
+
+	CREATE EXTENSION IF NOT EXISTS "postgis";
 
 3. Create the properties table. Run the following sql: 
-		CREATE TABLE properties
-			(
- 			 id bigint NOT NULL,
- 			 name character varying(255),
- 			 geo_coordinates geometry,
-			 feature_list character varying[],
-			 zoomlevel integer,
-			 CONSTRAINT properties_pkey PRIMARY KEY (id)
-			);
+		
+	CREATE TABLE properties
+	(
+	 id bigint NOT NULL,
+	 name character varying(255),
+	 geo_coordinates geometry,
+	 feature_list character varying[],
+	 zoomlevel integer,
+	 CONSTRAINT properties_pkey PRIMARY KEY (id)
+	);
 			
 4. (Optional) Seed the table with data. The sql to insert data is located in the `src/main/resources/import.sql` file.
 
@@ -84,7 +89,7 @@ Start the JBoss EAP Server
 Build and Deploy the Quickstart
 -------------------------
 
-_NOTE: The following build command assumes you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line. See [Build and Deploy the Quickstarts](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/BUILD_AND_DEPLOY.md#build-and-deploy-the-quickstarts) for complete instructions and additional options._
+_NOTE: The following build command assumes you have configured your Maven user settings. If you have not, you must include Maven setting arguments on the command line. 
 
 1. Make sure you have started the JBoss EAP server as described above.
 2. Open a command prompt and navigate to the root directory of this quickstart.
