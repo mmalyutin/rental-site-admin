@@ -36,22 +36,22 @@ Prepare Database
 
 1. Create the JBRentals database. Run the following sql: 
 
-	'CREATE DATABASE "JBRentals";'
+	`CREATE DATABASE "JBRentals";`
 		
 2. Switch to new database JBRentals and run the following statement: 
 
-	'CREATE EXTENSION IF NOT EXISTS "postgis";'
+	`CREATE EXTENSION IF NOT EXISTS "postgis";`
 
 3. Create the properties table. Run the following sql: 
 		
-	'CREATE TABLE properties (
+	`CREATE TABLE properties (
 	 id bigint NOT NULL,
 	 name character varying(255),
 	 geo_coordinates geometry,
 	 feature_list character varying[],
 	 zoomlevel integer,
 	 CONSTRAINT properties_pkey PRIMARY KEY (id)
-	 );'
+	 );`
 			
 4. (Optional) Seed the table with data. The sql to insert data is located in the `src/main/resources/import.sql` file.
 
