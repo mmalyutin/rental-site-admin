@@ -59,6 +59,44 @@ Prepare Database
 			
 4. (Optional) Seed the table with data. The sql to insert data is located in the `src/main/resources/import.sql` file.
 
+Configure Maven
+---------------
+
+If you have not yet done so, you must [Configure Maven](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts) before testing the quickstarts.
+
+        
+Install Postgres JDBC Driver as a Core Module
+--------------------------------------------- 
+ 
+These are specific instructions based on <https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6/html/Administration_and_Configuration_Guide/Install_a_JDBC_Driver_as_a_Core_Module1.html>
+ 
+1. Download the Postgres JDBC driver from <	http://jdbc.postgresql.org/> - <https://jdbc.postgresql.org/download/postgresql-9.4.1207.jar>
+2  Create the file path structure under the *EAP_HOME*/modules/ directory - *EAP_HOME*/modules/org/postgresql/main/.
+3. Copy the JDBC driver jar to the main/ subdirectory.
+4. In the main/subdirectory, create a module.xml file with the following contents:
+
+    '<?xml version="1.0" ?>
+    <module xmlns="urn:jboss:module:1.1" name="org.postgresql">
+    <resources>
+        <resource-root path="postgresql-9.4-1206-jdbc42.jar"/>
+    </resources>
+
+    <dependencies>
+        <module name="javax.api"/>
+		<module name="javax.transaction.api"/>
+    </dependencies>
+	</module>' 
+        
+   
+Start the JBoss EAP Server
+-------------------------
+
+1. Open a command line and navigate to the root of the JBoss EAP directory.
+2. The following shows the command line to start the server with the default profile:
+
+        For Linux:   bin/standalone.sh
+        For Windows: bin\standalone.bat
+             
 Configure EAP 7 Datasource
 ---------------------------
 
@@ -73,21 +111,6 @@ A command line interface (CLI) script is located in the `src/main/resources/dsSc
 	 For Windows: 
 	 	C:\>*EAP_HOME*\bin\jboss-cli.bat --connect --file=*PATH_TO_CLI_SCRIPT*\dsScript.cli
 	 	
-Configure Maven
----------------
-
-If you have not yet done so, you must [Configure Maven](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts) before testing the quickstarts.
-
-
-Start the JBoss EAP Server
--------------------------
-
-1. Open a command line and navigate to the root of the JBoss EAP directory.
-2. The following shows the command line to start the server with the default profile:
-
-        For Linux:   bin/standalone.sh
-        For Windows: bin\standalone.bat
-
 
 Build and Deploy the Quickstart
 -------------------------
