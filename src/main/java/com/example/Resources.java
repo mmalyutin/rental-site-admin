@@ -35,7 +35,7 @@ public class Resources {
     private EntityManager em;
     
 	
-	@Resource(mappedName="java:jboss/datasources/JBPostgisDS") 
+	@Resource(mappedName="java:jboss/datasources/JBRentals") 
 	DataSource datasource;
 	 
   
