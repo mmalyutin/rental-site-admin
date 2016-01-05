@@ -2,14 +2,10 @@ rental-site-admin: Hibernate Spatial with PostGIS and Custom User Type under Hib
 ======================================================================================
 Author: James Rohrbach  
 Level: Beginner  
-Technologies: Hibernate 5 with Hibernate Spatial, PostGIS, CDI, JSF, JPA, EJB, JTA  
-
-Summary: The `rental-site-admin` quickstart demonstrates how to create a Java EE 7 compliant application with Hibernate Spatial, PostGIS using  *CDI 1.2*,  *JPA 2.1*, *JTA 1.2*, *EJB 3.1* and *JSF 2.2*.  Based on `jboss-greeter` quickstart.
-
+Technologies: Hibernate 5 with Hibernate Spatial, PostGIS, CDI, JSF, JPA, EJB, JTA
+Summary: The `rental-site-admin` quickstart demonstrates how to create a Java EE 7 compliant application with Hibernate Spatial, PostGIS using  *CDI 1.2*,  *JPA 2.1*, *JTA 1.2*, *EJB 3.1* and *JSF 2.2*.  Based on `jboss-greeter` quickstart
 Target Product: Hibernate Spatial 5.0.5+
-
 Product Versions: EAP 7 Beta
-
 Source: <https://github.com/jjrohrb/rental-site-admin>    
 
 What is it?
@@ -58,25 +54,23 @@ Prepare Database
 	 );`
 			
 4. (Optional) Seed the table with data. The sql to insert data is located in the `src/main/resources/import.sql` file.
-
-Configure Maven
----------------
-
-If you have not yet done so, you must [Configure Maven](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts) before testing the quickstarts.
-
         
 Install Postgres JDBC Driver and Postgis driver as Core Modules
 --------------------------------------------- 
  
 These instructions are based on <https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6/html/Administration_and_Configuration_Guide/Install_a_JDBC_Driver_as_a_Core_Module1.html>
  
-1a. Download the Postgres JDBC driver from <http://jdbc.postgresql.org/> - <https://jdbc.postgresql.org/download/postgresql-9.4.1207.jar>
-1b. Compile the Postgis JDBC driver from source as described at <http://postgis.net> or download the jar at <http://mvnrepository.com/artifact/net.postgis/postgis-jdbc/2.2.0>.
-2  Create the file path structure under the *EAP_HOME*/modules/ directory - *EAP_HOME*/modules/org/postgresql/main/.
-3. Copy the JDBC driver jars to the main/ subdirectory.
-4. In the main/subdirectory, create a module.xml file with the following contents:
+1. Download the Postgres JDBC driver from <http://jdbc.postgresql.org/> - <https://jdbc.postgresql.org/download/postgresql-9.4.1207.jar>.
 
-    '<?xml version="1.0" ?>
+2. Compile the Postgis JDBC driver from source as described at <http://postgis.net> or download the jar at <http://mvnrepository.com/artifact/net.postgis/postgis-jdbc/2.2.0>.
+
+3  Create the file path structure under the *EAP_HOME*/modules/ directory - *EAP_HOME*/modules/org/postgresql/main/.
+
+4. Copy the JDBC driver jars to the main/ subdirectory.
+
+5. In the main/subdirectory, create a module.xml file with the following contents:
+
+    <?xml version="1.0" ?>
     <module xmlns="urn:jboss:module:1.1" name="org.postgresql">
     <resources>
         <resource-root path="postgresql-9.4.1207.jar"/>
@@ -87,7 +81,7 @@ These instructions are based on <https://access.redhat.com/documentation/en-US/J
         <module name="javax.api"/>
 		<module name="javax.transaction.api"/>
     </dependencies>
-	</module>' 
+	</module> 
         
    
 Start the JBoss EAP Server
@@ -112,6 +106,11 @@ A command line interface (CLI) script is located in the `src/main/resources/dsSc
 
 	 For Windows: 
 	 	C:\>*EAP_HOME*\bin\jboss-cli.bat --connect --file=*PATH_TO_CLI_SCRIPT*\dsScript.cli
+
+Configure Maven
+---------------
+
+If you have not yet done so, you must [Configure Maven](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts) before testing the quickstarts.
 	 	
 
 Build and Deploy the Quickstart
