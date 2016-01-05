@@ -97,7 +97,9 @@ Configure EAP 7 Datasource
 
 A command line interface (CLI) script is located in the `src/main/resources/dsScript.cli` 
 
-1. Modify the CLI script - change 'localhost:5432' to the correct host and port for your install of Postgres and insert the correct password or encrypted string if using Vault.
+1. Modify the CLI script -
+	a. change 'localhost:5432' to the correct host and port for your install of Postgres and
+	b. insert the correct password or if using Vault, insert the correct encrypted string.
 2. Open a terminal/command window and run the following substituting in the appropriate paths for *EAP_HOME*  and *PATH_TO_CLI_SCRIPT*.
 
 	For Linux:
