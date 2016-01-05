@@ -3,7 +3,7 @@ batch
 # Add postgresql JDBC driver
 /subsystem=datasources/jdbc-driver=postgresDriver:add(driver-class-name="org.postgresql.Driver",driver-module-name="org.postgresql",driver-name="postgresDriver") 
 # Add a non-XA datasource
-/subsystem=datasources/data-source=JBPostgisDS:add(connection-url="jdbc:postgresql_postGIS://localhost:5432/JBRentals",driver-class="org.postgis.DriverWrapper",driver-name="postgresDriver",jndi-name="java:jboss/datasources/JBRentals",password="${VAULT::postgresDB::password::1}",min-pool-size=5,max-pool-size=10,user-name="postgres")
+/subsystem=datasources/data-source=JBPostgisDS:add(connection-url="jdbc:postgresql_postGIS://localhost:5432/JBRentals",driver-class="org.postgis.DriverWrapper",driver-name="postgresDriver",jndi-name="java:jboss/datasources/JBRentals",password="${VAULT::VAULT_BLOCK::ATTRIBUTE_NAME::MASKED_STRING}",min-pool-size=5,max-pool-size=10,user-name="postgres")
 
 # Execute and reload
 run-batch

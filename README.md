@@ -65,20 +65,22 @@ Configure Maven
 If you have not yet done so, you must [Configure Maven](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN.md#configure-maven-to-build-and-deploy-the-quickstarts) before testing the quickstarts.
 
         
-Install Postgres JDBC Driver as a Core Module
+Install Postgres JDBC Driver and Postgis driver as Core Modules
 --------------------------------------------- 
  
-These are specific instructions based on <https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6/html/Administration_and_Configuration_Guide/Install_a_JDBC_Driver_as_a_Core_Module1.html>
+These instructions are based on <https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6/html/Administration_and_Configuration_Guide/Install_a_JDBC_Driver_as_a_Core_Module1.html>
  
-1. Download the Postgres JDBC driver from <	http://jdbc.postgresql.org/> - <https://jdbc.postgresql.org/download/postgresql-9.4.1207.jar>
+1a. Download the Postgres JDBC driver from <http://jdbc.postgresql.org/> - <https://jdbc.postgresql.org/download/postgresql-9.4.1207.jar>
+1b. Compile the Postgis JDBC driver from source as described at <http://postgis.net> or download the jar at <http://mvnrepository.com/artifact/net.postgis/postgis-jdbc/2.2.0>.
 2  Create the file path structure under the *EAP_HOME*/modules/ directory - *EAP_HOME*/modules/org/postgresql/main/.
-3. Copy the JDBC driver jar to the main/ subdirectory.
+3. Copy the JDBC driver jars to the main/ subdirectory.
 4. In the main/subdirectory, create a module.xml file with the following contents:
 
     '<?xml version="1.0" ?>
     <module xmlns="urn:jboss:module:1.1" name="org.postgresql">
     <resources>
-        <resource-root path="postgresql-9.4-1206-jdbc42.jar"/>
+        <resource-root path="postgresql-9.4.1207.jar"/>
+        <resource-root path="postgis-jdbc-2.2.0.jar"/>
     </resources>
 
     <dependencies>
@@ -102,7 +104,7 @@ Configure EAP 7 Datasource
 
 A command line interface (CLI) script is located in the `src/main/resources/dsScript.cli` 
 
-1. Modify the CLI script - change 'localhost:5432' to the correct host and port for your install of Postgres.
+1. Modify the CLI script - change 'localhost:5432' to the correct host and port for your install of Postgres and insert the correct password or encrypted string if using Vault.
 2. Open a terminal/command window and run the following substituting in the appropriate paths for *EAP_HOME*  and *PATH_TO_CLI_SCRIPT*.
 
 	For Linux:
