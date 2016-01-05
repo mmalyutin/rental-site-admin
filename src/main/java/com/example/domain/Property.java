@@ -50,13 +50,10 @@ public class Property implements Serializable {
 	private Point geo_coordinates;
 	
 	private Integer zoomlevel;
-	
+
 	// private Address address;
-
 	// private Owner owner;
-
 	// private Schedule schedule;
-
 	// private Collection<Images> images;	
 	
 	/******************************/

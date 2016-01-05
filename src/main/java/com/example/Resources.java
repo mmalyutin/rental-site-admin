@@ -38,27 +38,6 @@ public class Resources {
 	@Resource(mappedName="java:jboss/datasources/JBRentals") 
 	DataSource datasource;
 	 
-  
-
-//    public EntityManager getEm() {
-//		Connection conn;
-//		try {
-//			conn = datasource.getConnection();
-//			DatabaseMetaData md = conn.getMetaData();
-//			org.postgresql.jdbc42.Jdbc42Connection pgConn = (org.postgresql.jdbc42.Jdbc42Connection) md.getConnection();
-//			pgConn.addDataType("geometry",Class.forName("org.postgis.PGgeometry"));
-//			pgConn.addDataType("box3d",Class.forName("org.postgis.PGbox3d"));
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//
-//		} catch (ClassNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//		return em;
-//	}
 
 	@Produces
     public Logger getLogger(InjectionPoint ip) {
