@@ -44,13 +44,13 @@ Prepare Database
 
 3. Create the properties table. Run the following sql: 
 		
-	`CREATE TABLE properties (
-	  id bigint NOT NULL,
-	  name character varying(255),
-	  geo_coordinates geometry,
-	  feature_list character varying[],
-	  zoomlevel integer,
-	  CONSTRAINT properties_pkey PRIMARY KEY (id)
+	`CREATE TABLE properties (  
+	  id bigint NOT NULL,  
+	  name character varying(255),  
+	  geo_coordinates geometry,  
+	  feature_list character varying[],  
+	  zoomlevel integer,  
+	  CONSTRAINT properties_pkey PRIMARY KEY (id)  
 	 );`
 			
 4. (Optional) Seed the table with data. The sql to insert data is located in the `src/main/resources/import.sql` file.
@@ -70,18 +70,17 @@ These instructions are based on <https://access.redhat.com/documentation/en-US/J
 
 5. In the main/subdirectory, create a module.xml file with the following contents:
 
-    <?xml version="1.0" ?>
-    <module xmlns="urn:jboss:module:1.1" name="org.postgresql">
-    <resources>
-        <resource-root path="postgresql-9.4.1207.jar"/>
-        <resource-root path="postgis-jdbc-2.2.0.jar"/>
-    </resources>
-
-    <dependencies>
-        <module name="javax.api"/>
-		<module name="javax.transaction.api"/>
-    </dependencies>
-	</module> 
+    <?xml version="1.0" ?>  
+		<module xmlns="urn:jboss:module:1.1" name="org.postgresql">  
+    		<resources>  
+        		<resource-root path="postgresql-9.4.1207.jar"/>  
+        		<resource-root path="postgis-jdbc-2.2.0.jar"/>  
+    		</resources>  
+    		<dependencies>  
+        		<module name="javax.api"/>  
+				<module name="javax.transaction.api"/>  
+    		</dependencies>  
+		</module> 
         
    
 Start the JBoss EAP Server
