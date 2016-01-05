@@ -2,10 +2,10 @@ rental-site-admin: Hibernate Spatial with PostGIS and Custom User Type under Hib
 ======================================================================================
 Author: James Rohrbach  
 Level: Beginner  
-Technologies: Hibernate 5 with Hibernate Spatial, PostGIS, CDI, JSF, JPA, EJB, JTA
-Summary: The `rental-site-admin` quickstart demonstrates how to create a Java EE 7 compliant application with Hibernate Spatial, PostGIS using  *CDI 1.2*,  *JPA 2.1*, *JTA 1.2*, *EJB 3.1* and *JSF 2.2*.  Based on `jboss-greeter` quickstart
-Target Product: Hibernate Spatial 5.0.5+
-Product Versions: EAP 7 Beta
+Technologies: Hibernate 5 with Hibernate Spatial, PostGIS, CDI, JSF, JPA, EJB, JTA  
+Summary: The `rental-site-admin` quickstart demonstrates how to create a Java EE 7 compliant application with Hibernate Spatial, PostGIS using  *CDI 1.2*,  *JPA 2.1*, *JTA 1.2*, *EJB 3.1* and *JSF 2.2*.  Based on `jboss-greeter` quickstart  
+Target Product: Hibernate Spatial 5.0.5+  
+Product Versions: EAP 7 Beta  
 Source: <https://github.com/jjrohrb/rental-site-admin>    
 
 What is it?
@@ -64,7 +64,7 @@ These instructions are based on <https://access.redhat.com/documentation/en-US/J
 
 2. Compile the Postgis JDBC driver from source as described at <http://postgis.net> or download the jar at <http://mvnrepository.com/artifact/net.postgis/postgis-jdbc/2.2.0>.
 
-3  Create the file path structure under the *EAP_HOME*/modules/ directory - *EAP_HOME*/modules/org/postgresql/main/.
+3.  Create the file path structure under the *EAP_HOME*/modules/ directory - *EAP_HOME*/modules/org/postgresql/main/.
 
 4. Copy the JDBC driver jars to the main/ subdirectory.
 
